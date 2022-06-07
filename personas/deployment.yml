@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personas
+  labels:
+    app: personas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personas
+  template:
+    metadata:
+      labels:
+        app: personas
+    spec:
+      containers:
+        - name: personas
+          image: ronnydockerid/personas:1.0
+          ports:
+            - containerPort: 8080
